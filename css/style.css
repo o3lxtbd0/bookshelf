@@ -123,7 +123,7 @@ button {
 #footer {
   position:absolute;
   bottom:0;
-  margin-left:7vw;
+  /* margin-left:7vw; */
   width:50%;
   height:2.5rem;
 }
@@ -164,7 +164,7 @@ button {
     min-width: 275px;
   }
   #footer {
-    margin-left:0;
+    /* margin-left:0; */
     margin-bottom:2rem;
   }
 }
