@@ -102,8 +102,8 @@ button {
 .card-delete {
   font-size: 2rem;
   height: 3rem;
-  padding:0 .8rem;
-  width:3rem;
+  padding: 0 .8rem;
+  width: 3rem;
 }
 
 .card {
@@ -123,6 +123,7 @@ button {
 #footer {
   position:absolute;
   bottom:0;
+  margin-left:7vw;
   width:50%;
   height:2.5rem;
 }
@@ -146,7 +147,7 @@ button {
 
 @media(max-width:600px) {
   #welcome-heading { padding:1rem 0; }
-  #content-wrap    { padding-top: 65px; }
+  #content-wrap    { padding-top: 65px; padding-bottom: 3rem; }
   .container       { padding: 0 1rem; }
   .column.presets-clear-all,
   .card-row        { flex-direction: column; }
@@ -161,6 +162,10 @@ button {
   .card-container {
     max-width: 400px;
     min-width: 275px;
+  }
+  #footer {
+    margin-left:0;
+    margin-bottom:2rem;
   }
 }
 
