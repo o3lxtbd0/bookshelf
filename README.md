@@ -1,6 +1,4 @@
 # bookshelf
-Can be viewed in browser here:
-https://azimuthgambit.github.io/bookshelf/
+view in browser here:
 
-My solution to the Library Project assignment for the Odin Project's Javascript curriculum:
-https://www.theodinproject.com/courses/javascript/lessons/library
+https://azimuthgambit.github.io/bookshelf/
