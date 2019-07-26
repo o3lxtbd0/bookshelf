@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" href="./images/favicon/baseline_library_books_white_18dp.png" type="image/png">
+  <title>My Bookshelf</title>
+  <meta name="description" content="a library app created for the Odin Project curriculum.">
+  <meta name="author" content="Azimuth Gambit アジマス・ガンビット">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="welcome" id="welcome">
+  <div class="container">
+    <h2 id="welcome-heading">My Bookshelf</h2>
+  </div>
+</div>
+
+<div class="container" id="page-container">
+  <div class="content-wrap" id="content-wrap">
+    <h5 id="welcome-description">kindly enter your books.</h5>
+
+    <form id="book-in">
+      <div class="row values">
+        <div class="row first">
+          <div class="column">
+            <div class="title" id="title-div">
+              <label for="title-in">Book Title</label>
+              <input class="" type="text" placeholder="title" id="title-in" required>
+            </div>
+
+            <div class="author" id="author-div">
+              <label for="author-in">Author</label>
+              <input class="" type="text" placeholder="author" id="author-in" required>
+            </div>
+          </div>
+        </div>
+
+          <div class="row second">
+
+            <div class="column">
+               <div class="pages" id="pages-div">
+                 <label for="pages-in">Pages</label>
+                 <input class="" type="text" placeholder="pages" id="pages-in" required>
+               </div>
+
+               <div class="read" id="read-div">
+                 <label for="been-read">Read</label>
+                 <select class="" id="read-in">
+                   <option value="false">unread</option>
+                   <option value="true">read</option>
+                 </select>
+               </div>
+             </div>
+
+           <div class="column third">
+             <div class="add">
+               <br>
+        		   <button type="submit" class="button-primary" id="btn-adder">Add Book</button>
+        	   </div>
+           </div>
+         </div>
+       </div>
+     </form>
+
+    <br>
+
+    <div class="column presets-clear-all">
+      <button type="submit" class="btn" id="btn-presets">Load Presets</button>
+      <button type="submit" class="btn" id="btn-clearall">Clear All</button>
+    </div>
+
+    <br>
+
+    <div id="card-section"></div>
+
+  </div> <!-- content wrap -->
+
+<footer id="footer">by Azimuth Gambit ・ July 2019 </footer>
+
+</div> <!-- page container -->
+
+<script src="./js/script.js"></script>
+
+</body>
+</html>
