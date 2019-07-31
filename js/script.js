@@ -60,7 +60,7 @@ function renderAll(arr) {
     const tick  = myLibrary[index].read ? "checked" : "";
     const unread= myLibrary[index].read ? "read" : "unread";
     return `
-      <div class="card-container" >
+      <div class="card-container" id=${index} >
         <div class ="card card-row">
           <div class="card-column">
             <h5 class="card-title">${book.title}</h5>
@@ -71,11 +71,11 @@ function renderAll(arr) {
             <h5 class="card-read" id=${'read'+index}> ${unread} </h5>
             <div class="switch-div">
               <label class="switch">
-                <input class="checkbox" type="checkbox" name="checkbox" id=${index} ${tick}>
+                <input class="checkbox" type="checkbox" name="checkbox" ${tick}>
                 <span class="slider round"></span>
               </label>
             </div>
-            <button class="delBtn card-delete" id=${index}>×</button>
+            <button class="delBtn card-delete">×</button>
           </div>
         </div>
       </div>
@@ -86,21 +86,33 @@ function renderAll(arr) {
   const delBtns = document.querySelectorAll(".delBtn");
   delBtns.forEach(btn => btn.addEventListener('click', btnClick));
   function btnClick(e) {
-    myLibrary.splice(e.path[0].id, 1);
-    renderAll(myLibrary);
+    const parentCard = e.path[3];
+    parentCard.classList.add('card-fadeout');
+  }
+
+  const cardSec = document.getElementById("card-section");
+  const cardConts = document.querySelectorAll(".card-container");
+  cardConts.forEach(card => card.addEventListener('transitionend', btnDel));
+  function btnDel(e) {
+    if (e.propertyName !== 'opacity'){ return; }
+    else if (e.propertyName === 'opacity'){
+      const index = e.path[0].id;
+      myLibrary.splice(index, 1);
+      renderAll(myLibrary);
+    }
   }
 
   const checkboxes = document.querySelectorAll("input[name=checkbox]");
   checkboxes.forEach(sw => sw.addEventListener('change', switchChange));
   function switchChange(e) {
-    const index = e.path[0].id;
+    const index = e.path[5].id;
     myLibrary[index].read = e.path[0].checked;
     const titleId = 'read' + index;
     const newRead = document.getElementById(titleId);
     newRead.textContent = myLibrary[index].read ? "read" : "unread" ;
   }
-}
 
+}
 // Presets ----------------------------------
 const endersGame = new Book("Ender's Game", "Orson Scott Card", "324", true);
 const inTheHeartOfTheSea = new Book("In The Heart Of the Sea", "Nathaniel Philbrick", "302", true);

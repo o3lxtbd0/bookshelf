@@ -20,39 +20,33 @@ body {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 * { box-sizing: border-box; }
 
-.container {
-  padding: 0 5rem;
-  min-width: 250px;
-}
-
-#page-container {
-  position:relative;
-  min-height:100vh;
-}
-
-#content-wrap {
-  max-width: 880px;
-  padding-top:132px;
-  padding-bottom:2.5rem;
-}
-
 #welcome {
-  position:absolute;
-  top:0;
+  margin:0 auto;
   width:100%;
-  max-width:1000px;
   background-size: cover;
   background-position: center center;
   background-image:url('https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/f_auto,q_auto,w_1100/v1554919465/shape/mentalfloss/istock-157382617.jpg');
 }
 
 #welcome-heading {
-  padding: 4rem 0;
+  padding: 40px 0;
   font-weight: 550;
   margin-bottom:0;
 }
 
-#welcome-description {  margin-top:2rem; }
+#welcome-byline {
+  margin-bottom:0;
+  text-align: right;
+}
+
+#welcome-byline, #content-wrap { max-width: 880px; }
+
+.container {
+  padding: 0 5rem;
+  min-width: 250px;
+  max-width: 1000px;
+  margin:auto;
+}
 
 .row         { display:flex; }
 .column      { display:flex; }
@@ -83,28 +77,9 @@ button {
   cursor: pointer;
 }
 
-.card-row {
-  display:flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
+.card-container { transition: .4s; }
 
-.card-column {
-  display:flex;
-  flex-direction:column;
-  min-width: 100px;
-}
-
-.card-column.second { align-items:flex-end; }
-
-.card-title {  overflow-wrap: break-word; }
-
-.card-delete {
-  font-size: 2rem;
-  height: 3rem;
-  padding: 0 .8rem;
-  width: 3rem;
-}
+.card-fadeout { opacity: 0; }
 
 .card {
   margin: 2rem 0;
@@ -120,19 +95,34 @@ button {
   border: 1px solid #bbb;
 }
 
-#footer {
-  position:absolute;
-  bottom:0;
-  /* margin-left:7vw; */
-  width:50%;
-  height:2.5rem;
+.card-row {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.card-column {
+  display:flex;
+  flex-direction:column;
+  min-width: 100px;
+}
+
+.card-column.second { align-items: flex-end; }
+
+.card-title {  overflow-wrap: break-word; }
+
+.card-delete {
+  font-size: 2rem;
+  height: 3rem;
+  padding: 0 .8rem;
+  width: 3rem;
 }
 
 /* Media Inquiries
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 @media(max-width:950px) {
   #welcome-heading { padding: 2rem 0; }
-  #content-wrap    { padding-top: 92px; }
+  /* #content-wrap    { padding-top: 92px; } */
   .container       { padding: 0 1rem; }
   .column          { flex-direction:column; justify-content: flex-start; }
   .column.presets-clear-all {
@@ -147,7 +137,7 @@ button {
 
 @media(max-width:600px) {
   #welcome-heading { padding:1rem 0; }
-  #content-wrap    { padding-top: 65px; padding-bottom: 3rem; }
+  /* #content-wrap    { padding-top: 65px; padding-bottom: 3rem; } */
   .container       { padding: 0 1rem; }
   .column.presets-clear-all,
   .card-row        { flex-direction: column; }
@@ -163,13 +153,9 @@ button {
     max-width: 400px;
     min-width: 275px;
   }
-  #footer {
-    /* margin-left:0; */
-    margin-bottom:2rem;
-  }
 }
 
-/* Slider Switch ... adapted from W3Schools example
+/* Slider Switch ... adapted from W3Schools' example
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .switch-div {  margin-block-end: 1em; }
 
@@ -224,7 +210,7 @@ input:checked + .slider:before {
 
 .slider.round:before { border-radius: 50%; }
 
-/* Typography
+/* Typography  ... adapted from getskeleton.com
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
